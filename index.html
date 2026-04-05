@@ -2,22 +2,102 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Hawkins House</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hawkins House Demo</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div id="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-kicker">Interactive Demo</span>
+        <h1>Hawkins House</h1>
+      </div>
 
-<div id="overlay" class="hidden">
-  <div id="contentBox">
-    <h2 id="pillarTitle"></h2>
-    <ul id="pillarList"></ul>
-    <button onclick="closeOverlay()">Back</button>
+      <div class="topbar-actions">
+        <button id="homeBtn" class="ghost-btn">House View</button>
+        <button id="interiorBtn" class="ghost-btn">Kitchen View</button>
+      </div>
+    </header>
+
+    <main class="experience">
+      <section id="exteriorScene" class="scene active">
+        <div class="sky-glow"></div>
+
+        <div class="bird bird-a"></div>
+        <div class="bird bird-b"></div>
+        <div class="bird bird-c"></div>
+
+        <div id="houseStage" class="house-stage">
+          <img id="houseImage" src="house.png" alt="Hawkins House" />
+
+          <button class="hotspot pillar" data-pillar="parents" aria-label="Parents pillar"></button>
+          <button class="hotspot pillar" data-pillar="kids" aria-label="Kids pillar"></button>
+          <button class="hotspot pillar" data-pillar="preteens" aria-label="Preteens pillar"></button>
+          <button class="hotspot pillar" data-pillar="teens" aria-label="Teens pillar"></button>
+
+          <button id="doorHotspot" class="hotspot door" aria-label="Front door"></button>
+
+          <div id="pillarLabels" class="pillar-labels hidden"></div>
+
+          <div class="scene-caption">
+            <span>Click a pillar to explore a discipleship pathway</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="interiorScene" class="scene interior-scene">
+        <div class="interior-wrap">
+          <div class="kitchen-glow"></div>
+
+          <div class="interior-card">
+            <p class="mini-label">Inside the Home</p>
+            <h2>The Kitchen Table</h2>
+            <p class="interior-copy">
+              A simple gathering place for family discipleship, conversation,
+              prayer, learning, and next steps.
+            </p>
+
+            <div class="table-stage">
+              <div class="wall-art left-frame"></div>
+              <div class="wall-art right-frame"></div>
+
+              <div class="window window-left"></div>
+              <div class="window window-right"></div>
+
+              <div class="table"></div>
+
+              <div class="chair chair-left"></div>
+              <div class="chair chair-right"></div>
+
+              <div class="table-items">
+                <div class="book-stack"></div>
+                <div class="candle"></div>
+                <div class="bowl"></div>
+              </div>
+            </div>
+
+            <div class="interior-actions">
+              <button id="backOutsideBtn" class="primary-btn">Back to House</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <aside id="infoPanel" class="info-panel">
+      <div class="info-panel-inner">
+        <button id="closePanelBtn" class="close-btn" aria-label="Close panel">×</button>
+        <p class="mini-label">Discipleship Pathway</p>
+        <h2 id="panelTitle">Parents</h2>
+        <p id="panelSubtitle" class="panel-subtitle">
+          Click any available pathway below.
+        </p>
+        <ul id="panelList" class="panel-list"></ul>
+      </div>
+    </aside>
   </div>
-</div>
 
-<button id="resetBtn" onclick="resetView()">Reset View</button>
-
-<script type="module" src="main.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
