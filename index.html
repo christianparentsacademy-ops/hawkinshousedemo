@@ -7,30 +7,80 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div id="app">
+    <div class="topbar">
+      <div>
+        <div class="eyebrow">Interactive Demo</div>
+        <h1>Hawkins House</h1>
+      </div>
 
-<div id="scene">
+      <div class="top-actions">
+        <button id="houseViewBtn" class="ghost-btn">House View</button>
+        <button id="kitchenViewBtn" class="ghost-btn">Kitchen View</button>
+      </div>
+    </div>
 
-  <img id="house" src="house.png" />
+    <main id="sceneWrap">
+      <section id="houseScene" class="scene active">
+        <div class="sky-layer"></div>
+        <div class="bird bird1"></div>
+        <div class="bird bird2"></div>
 
-  <!-- PILLARS -->
-  <div class="pillar" data-name="parents"></div>
-  <div class="pillar" data-name="kids"></div>
-  <div class="pillar" data-name="preteens"></div>
-  <div class="pillar" data-name="teens"></div>
+        <div id="houseFrame">
+          <img id="house" src="house.png" alt="Hawkins House" />
 
-  <!-- DOOR -->
-  <div id="door"></div>
+          <!-- Pillars -->
+          <button class="pillar" data-name="parents" aria-label="Parents pillar"></button>
+          <button class="pillar" data-name="kids" aria-label="Kids pillar"></button>
+          <button class="pillar" data-name="preteens" aria-label="Preteens pillar"></button>
+          <button class="pillar" data-name="teens" aria-label="Teens pillar"></button>
 
-</div>
+          <!-- Door -->
+          <button id="door" aria-label="Front door"></button>
 
-<!-- PANEL -->
-<div id="panel" class="hidden">
-  <h2 id="title"></h2>
-  <ul id="list"></ul>
-  <button onclick="closePanel()">Back</button>
-</div>
+          <div class="caption">Click a pillar to explore a discipleship pathway</div>
+        </div>
+      </section>
 
-<script src="script.js"></script>
+      <section id="kitchenScene" class="scene">
+        <div class="kitchen-shell">
+          <div class="kitchen-card">
+            <div class="eyebrow">Inside the Home</div>
+            <h2>The Kitchen Table</h2>
+            <p>
+              A simple gathering place for family discipleship, conversation,
+              prayer, learning, and next steps.
+            </p>
 
+            <div class="kitchen-illustration">
+              <div class="window left"></div>
+              <div class="window right"></div>
+              <div class="frame left"></div>
+              <div class="frame right"></div>
+              <div class="table"></div>
+              <div class="chair left"></div>
+              <div class="chair right"></div>
+              <div class="books"></div>
+              <div class="candle"></div>
+              <div class="bowl"></div>
+            </div>
+
+            <button id="backToHouseBtn" class="primary-btn">Back to House</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <aside id="panel" class="panel">
+      <div class="panel-inner">
+        <button id="closePanelBtn" class="close-btn" aria-label="Close">×</button>
+        <div class="eyebrow">Discipleship Pathway</div>
+        <h2 id="title">Parents</h2>
+        <ul id="list"></ul>
+      </div>
+    </aside>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
